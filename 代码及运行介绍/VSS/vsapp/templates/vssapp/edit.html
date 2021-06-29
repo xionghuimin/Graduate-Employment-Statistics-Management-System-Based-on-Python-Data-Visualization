@@ -1,0 +1,97 @@
+{% extends 'vssapp/basic.html' %}
+{% load static %}
+
+{% block title %} 编辑数据 {% endblock %}
+
+{% block css %}
+    <style>
+        img {
+            width: 100%;
+        }
+    </style>
+    <style type="text/css">
+         * {padding:0;margin:0;}
+         body {background: #ccc;}
+        aside {width:95%;margin:40px auto;background: #fff;padding:20px;}
+        h3 {height: 40px;line-height: 40px;border-left:3px solid #ccc;padding-left: 10px;margin-bottom: 20px;}
+        label {display: block;width:120px;float: left;text-align: right;margin-left: 15%;margin-right: 20px;}
+        div {margin-bottom: 15px;}
+        aside p {margin-left: calc(15% + 140px);margin-top: 10px;color:#ccc;font-size: 10px;}
+     </style>
+{% endblock %}
+
+{% block content %}
+{% for d in students %}
+    <aside>
+
+         <h3>编辑学生信息</h3>
+         <form action="/edit/" method="post">
+             <input type="hidden" name="id" value="{{ d.00 }}"/>
+             <div>
+                 <label>毕业年份</label>
+                 <input value="{{ d.01 }}" name="grade">
+                 <p>请填写毕业的年份以表明是哪一届的毕业生，比如2021毕业就填写2021</p>
+             </div>
+             <div>
+                 <label>学号</label>
+                 <input value="{{ d.02 }}" name="number">
+                 <p>学号为11位的数字</p>
+             </div>
+             <div>
+                 <label>姓名</label>
+                 <input value="{{ d.03 }}" name="name">
+             </div>
+             <div>
+                 <label>性别</label>
+                 <input value="{{ d.04 }}" name="sex">
+             </div>
+             <div>
+                 <label>专业</label>
+                 <input value="{{ d.05 }}" name="major">
+             </div>
+             <div>
+                 <label>目标</label>
+                 <input value="{{ d.06 }}" name="target">
+                 <p>填写工作、考研、考编或是其他作为自己的目标</p>
+             </div>
+             <div>
+                 <label>状态</label>
+                 <input value="{{ d.07 }}" name="situation">
+                 <p>定下的目标是成功完成还是以暂时失败</p>
+             </div>
+             <div>
+                 <label>未来</label>
+                 <input value="{{ d.08 }}" name="later">
+                 <p>若定下的目标暂未完成则填写未来的计划，若已成功则填写已完成</p>
+             </div>
+             <div>
+                 <label>岗位</label>
+                 <input value="{{ d.09 }}" name="position">
+             </div>
+             <div>
+                 <label>省份</label>
+                 <input value="{{ d.10 }}" name="pro">
+                 <p>工作、考研或考编将要去往的省份</p>
+             </div>
+             <div>
+                 <label>城市</label>
+                 <input value="{{ d.11 }}" name="city">
+                 <p>工作、考研或考编将要去往的城市</p>
+             </div>
+             <div>
+                 <label>年薪/万</label>
+                 <input value="{{ d.12 }}" name="AnnualSalary">
+                 <p>年薪以万为单位，若年薪为18万则填18</p>
+             </div>
+
+             <div>
+                 <label>检查后再提交哦</label>
+                 <input type="submit" value="确认修改">
+             </div>
+         </form>
+     </aside>
+
+{% endfor %}
+
+
+{% endblock %}

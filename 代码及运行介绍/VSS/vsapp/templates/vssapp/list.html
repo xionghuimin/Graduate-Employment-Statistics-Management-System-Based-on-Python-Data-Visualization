@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}毕业生信息列表{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'plugin/bootstrap/css/bootstrap.min.css' %}">
+    <style>
+        .navbar-default {
+            border-radius: 0;
+        }
+    </style>
+    {% block css %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/index">首页</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/barVisval">就业类别人数</a></li>
+        <li><a href="/targetVisval">就业类别完成度</a></li>
+        <li><a href="/jobVisval">职位类别</a></li>
+        <li><a href="/cityVisval">城市分布</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">毕业生数据<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/add">添加数据</a></li>
+            <li><a href="/upload">excle表格导入数据</a></li>
+            <li><a href="/list">毕业生就业信息列表</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+ <ul class="breadcrumb">
+     <li><a href="/add">添加数据</a></li>
+     <li><a href="/upload">excle表格导入数据</a></li>
+     <li><a href="/find">查询编辑或删除</a></li>
+     <li><a href="/deleteAll">删除所有数据</a></li>
+ </ul>
+    <table class="table">
+	<caption>毕业生就业信息列表</caption>
+   <thead>
+      <tr>
+         <th>年份</th>
+         <th>学号</th>
+         <th>姓名</th>
+         <th>性别</th>
+         <th>专业</th>
+         <th>目标</th>
+         <th>状态</th>
+         <th>未来</th>
+         <th>岗位</th>
+         <th>省份</th>
+         <th>城市</th>
+         <th>年薪/万</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for d in students %}
+      <tr>
+         <td>{{ d.01}}</td>
+         <td>{{ d.02 }}</td>
+         <td>{{ d.03 }}</td>
+         <td>{{ d.04 }}</td>
+         <td>{{ d.05 }}</td>
+         <td>{{ d.06 }}</td>
+         <td>{{ d.07 }}</td>
+         <td>{{ d.08 }}</td>
+         <td>{{ d.09 }}</td>
+         <td>{{ d.10 }}</td>
+         <td>{{ d.11 }}</td>
+         <td>{{ d.12 }}</td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+
+<div class="page-footer" align="center">
+    <br>
+    <p>-----------------------------------------------------------------------------------------------------------------</p>
+  <h4>仅显示最近更新的7条数据 </h4>
+  <small>若想查看具体的某条数据请到查询功能处根据学号查询</small>
+    <p>-----------------------------------------------------------------------------------------------------------------</p>
+</div>
+
+{% block content %}{% endblock %}
+
+
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'plugin/bootstrap/js/bootstrap.min.js' %}"></script>
+{% block js %}{% endblock %}
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+{% extends 'vssapp/find.html' %}
+{% load static %}
+
+{% block title %}信息展示{% endblock %}
+
+{% block css %}
+    <style>
+        img {
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <table border="1px" width="100%" style="border-collapse: collapse;">
+         <tr>
+         <th align="center">年份</th>
+         <th>学号</th>
+         <th>姓名</th>
+         <th>性别</th>
+         <th>专业</th>
+         <th>目标</th>
+         <th>状态</th>
+         <th>未来</th>
+         <th>岗位</th>
+         <th>省份</th>
+         <th>城市</th>
+         <th>年薪/万</th>
+         <th>操作</th>
+
+         </tr>
+    {% for d in students %}
+      <tr>
+         <td>{{ d.01 }}</td>
+         <td>{{ d.02 }}</td>
+         <td>{{ d.03 }}</td>
+         <td>{{ d.04 }}</td>
+         <td>{{ d.05 }}</td>
+         <td>{{ d.06 }}</td>
+         <td>{{ d.07 }}</td>
+         <td>{{ d.08 }}</td>
+         <td>{{ d.09 }}</td>
+         <td>{{ d.10 }}</td>
+         <td>{{ d.11 }}</td>
+         <td>{{ d.12 }}</td>
+           <td>
+            <a href="/edit/?id={{ d.02 }}">编辑</a>
+            <a href="/delete/?id={{ d.02 }}">删除</a>
+           </td>
+      </tr>
+     {% endfor %}
+</table>
+{% endblock %}

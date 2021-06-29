@@ -1,0 +1,27 @@
+{% extends 'vssapp/basic.html' %}
+{% load static %}
+{% block title %}首页{% endblock %}
+
+{% block css %}
+    <style>
+        img {
+            width: 100%;
+        }
+    </style>
+    <style type="text/css">
+    .jumbotron{text-align:center;width:100%;}
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>欢迎光临</h1>
+    <br>
+    <br>
+  <p>基于Python数据可视化的毕业生就业统计管理系统</p>
+    <br>
+    <br>
+  <p><a class="btn btn-primary btn-lg" href="/barVisval" role="button">开始使用</a></p>
+</div>
+
+{% endblock %}

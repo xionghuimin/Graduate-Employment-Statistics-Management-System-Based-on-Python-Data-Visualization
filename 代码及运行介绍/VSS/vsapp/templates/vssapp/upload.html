@@ -1,0 +1,31 @@
+{% extends 'vssapp/basic.html' %}
+{% load static %}
+{% block title %}excle导入{% endblock %}
+
+{% block css %}
+    <style>
+        img {
+            width: 100%;
+        }
+    </style>
+    <style type="text/css">
+        .jumbotron{text-align:center;width:100%;}
+        #sub{text-align:center;width:20%;}
+        #upfile{text-align:center;width:100%;}
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>excle表格上传处</h1>
+    <br>
+    <br>
+    <form action="/upload/" method="post" enctype="multipart/form-data">
+        <input  type="file" name="file" id="upfile" />
+        <br>
+        <br>
+        <input class="btn btn-primary btn-lg" type="submit"  id="sub" name="submit" value="提交" />
+    </form>
+</div>
+
+{% endblock %}

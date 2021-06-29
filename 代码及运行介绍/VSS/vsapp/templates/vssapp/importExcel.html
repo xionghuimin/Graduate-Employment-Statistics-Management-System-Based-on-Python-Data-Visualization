@@ -1,0 +1,25 @@
+{% extends 'vssapp/basic.html' %}
+{% load static %}
+{% block title %}导入数据{% endblock %}
+
+{% block css %}
+    <style>
+        img {
+            width: 100%;
+        }
+    </style>
+    <style type="text/css">
+    .jumbotron{text-align:center;width:100%;}
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h2>成功导入{{ rows }}行数据</h2>
+    <br>
+  <p>可点击下方按钮跳转至列表功能处进行查看</p>
+    <br>
+  <p><a class="btn btn-primary btn-lg" href="/list" role="button">跳转至列表功能处查看</a></p>
+</div>
+
+{% endblock %}
